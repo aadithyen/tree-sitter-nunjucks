@@ -1,0 +1,28 @@
+{
+  "grammars": [
+    {
+      "name": "nunjucks",
+      "camelcase": "Nunjucks",
+      "scope": "text.nunjucks",
+      "path": ".",
+      "file-types": ["njk", "nunjucks"],
+      "injection-regex": "nunjucks"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "Apache-2.0",
+    "description": "Nunjucks grammar for tree-sitter (Eleventy .njk templates)",
+    "authors": [
+      {
+        "name": "Aadithyen"
+      }
+    ]
+  },
+  "bindings": {
+    "c": true,
+    "node": true,
+    "python": true,
+    "rust": true
+  }
+}

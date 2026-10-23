@@ -1,0 +1,74 @@
+==================
+bare variable in output
+==================
+
+{{ title }}
+
+---
+
+(source_file
+  (filter_chain
+    (identifier)))
+
+==================
+multiple nunjucks calls
+==================
+
+some text {{ 'floating lit' }} more text {{ config() }} text.
+
+---
+
+(source_file
+  (filter_chain
+    (lit_string))
+  (filter_chain
+    (fn_call
+      (identifier)
+      (argument_list))))
+
+==================
+text with curly braces
+==================
+
+some curlys { }
+
+---
+
+(source_file)
+
+==================
+empty file
+==================
+
+---
+
+(source_file)
+
+==================
+unclosed output fails
+==================
+
+{{ fn() 
+
+---
+
+(source_file
+  (filter_chain
+    (fn_call
+      (identifier)
+      (argument_list)))
+  (MISSING "}}"))
+
+==================
+11ty-style layout tags
+==================
+
+{% extends "base.njk" %}
+{% block content %}Hello{% endblock %}
+
+---
+
+(source_file
+  (nunjucks_statement)
+  (nunjucks_statement)
+  (nunjucks_statement))

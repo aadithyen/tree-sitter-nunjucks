@@ -1,0 +1,14 @@
+==================
+nunjucks booleans
+==================
+
+{{ true }}
+{{ false }}
+
+---
+
+(source_file
+  (filter_chain
+    (bool))
+  (filter_chain
+    (bool)))

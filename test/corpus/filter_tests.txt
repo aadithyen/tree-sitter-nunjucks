@@ -1,0 +1,43 @@
+==================
+single filter
+==================
+
+{{ name | upper }}
+
+---
+
+(source_file
+  (filter_chain
+    (identifier)
+    (identifier)))
+
+==================
+filter chain
+==================
+
+{{ post.title | slug | url }}
+
+---
+
+(source_file
+  (filter_chain
+    (member_expression
+      (identifier)
+      (identifier))
+    (identifier)
+    (identifier)))
+
+==================
+filter with arguments
+==================
+
+{{ items | join(",") }}
+
+---
+
+(source_file
+  (filter_chain
+    (identifier)
+    (identifier)
+    (argument_list
+      (lit_string))))
