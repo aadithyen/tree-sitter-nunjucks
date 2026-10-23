@@ -1,0 +1,10 @@
+node_modules/
+*.gyp
+*.wasm
+index.js
+build/
+target/
+Cargo.lock
+*.egg-info
+__pycache__/
+*.py[cod]
