@@ -8,3 +8,4 @@ Cargo.lock
 *.egg-info
 __pycache__/
 *.py[cod]
+.direnv
