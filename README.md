@@ -69,24 +69,7 @@ vim.treesitter.language.register("nunjucks", "nunjucks")
 
 ### 2. Register the parser (pick one)
 
-**Local clone** (develop / try before publish):
-
-```lua
-vim.api.nvim_create_autocmd("User", {
-  pattern = "TSUpdate",
-  callback = function()
-    require("nvim-treesitter.parsers").nunjucks = {
-      install_info = {
-        -- your clone path
-        path = vim.fn.expand("~/workspace/tree-sitter-nunjucks"),
-        queries = "queries",
-      },
-    }
-  end,
-})
-```
-
-**From GitHub** (after you push this repo):
+**From GitHub** (recommended):
 
 ```lua
 vim.api.nvim_create_autocmd("User", {
@@ -96,6 +79,23 @@ vim.api.nvim_create_autocmd("User", {
       install_info = {
         url = "https://github.com/aadithyen/tree-sitter-nunjucks",
         revision = "main", -- or a tag / commit
+        queries = "queries",
+      },
+    }
+  end,
+})
+```
+
+**Local clone** (develop against a checkout):
+
+```lua
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TSUpdate",
+  callback = function()
+    require("nvim-treesitter.parsers").nunjucks = {
+      install_info = {
+        -- path to your local clone
+        path = vim.fn.expand("~/path/to/tree-sitter-nunjucks"),
         queries = "queries",
       },
     }
