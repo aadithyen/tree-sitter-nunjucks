@@ -9,3 +9,7 @@ Cargo.lock
 __pycache__/
 *.py[cod]
 .direnv
+
+*.so
+.env
+.env.*

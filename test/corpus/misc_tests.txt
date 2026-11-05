@@ -1,40 +1,45 @@
 ==================
 bare variable in output
 ==================
-
 {{ title }}
 
 ---
 
 (source_file
-  (filter_chain
-    (identifier)))
+  (output
+    expr: (filter_chain
+      base: (identifier)))
+  (content))
 
 ==================
 multiple nunjucks calls
 ==================
-
 some text {{ 'floating lit' }} more text {{ config() }} text.
 
 ---
 
 (source_file
-  (filter_chain
-    (lit_string))
-  (filter_chain
-    (fn_call
-      (identifier)
-      (argument_list))))
+  (content)
+  (output
+    expr: (filter_chain
+      base: (lit_string)))
+  (content)
+  (output
+    expr: (filter_chain
+      base: (fn_call
+        fn_name: (identifier)
+        argument_list: (argument_list))))
+  (content))
 
 ==================
 text with curly braces
 ==================
-
 some curlys { }
 
 ---
 
-(source_file)
+(source_file
+  (content))
 
 ==================
 empty file
@@ -47,28 +52,70 @@ empty file
 ==================
 unclosed output fails
 ==================
-
 {{ fn() 
 
 ---
 
 (source_file
-  (filter_chain
-    (fn_call
-      (identifier)
-      (argument_list)))
-  (MISSING "}}"))
+  (output
+    (filter_chain
+      (fn_call
+        (identifier)
+        (argument_list)))
+    (MISSING "}}")))
 
 ==================
 11ty-style layout tags
 ==================
-
 {% extends "base.njk" %}
 {% block content %}Hello{% endblock %}
 
 ---
 
 (source_file
-  (nunjucks_statement)
-  (nunjucks_statement)
-  (nunjucks_statement))
+  (statement
+    (extends_statement
+      tag: (keyword)
+      target: (filter_chain
+        base: (lit_string))))
+  (content)
+  (statement
+    (block_statement
+      tag: (keyword)
+      name: (identifier)))
+  (content)
+  (statement
+    (tag_statement
+      tag: (keyword)))
+  (content))
+
+==================
+for loop and custom tag
+==================
+{% css %}
+{% for post in posts %}{{ post.title }}{% endfor %}
+
+---
+
+(source_file
+  (statement
+    (tag_statement
+      tag: (tag)))
+  (content)
+  (statement
+    (for_statement
+      tag: (repeat)
+      left: (identifier)
+      (keyword)
+      right: (filter_chain
+        base: (identifier))))
+  (output
+    expr: (filter_chain
+      base: (member_expression
+        object: (identifier)
+        property: (identifier))))
+  (statement
+    (tag_statement
+      tag: (repeat)))
+  (content))
+

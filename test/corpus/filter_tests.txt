@@ -1,43 +1,47 @@
 ==================
 single filter
 ==================
-
 {{ name | upper }}
 
 ---
 
 (source_file
-  (filter_chain
-    (identifier)
-    (identifier)))
+  (output
+    expr: (filter_chain
+      base: (identifier)
+      name: (identifier)))
+  (content))
 
 ==================
 filter chain
 ==================
-
 {{ post.title | slug | url }}
 
 ---
 
 (source_file
-  (filter_chain
-    (member_expression
-      (identifier)
-      (identifier))
-    (identifier)
-    (identifier)))
+  (output
+    expr: (filter_chain
+      base: (member_expression
+        object: (identifier)
+        property: (identifier))
+      name: (identifier)
+      name: (identifier)))
+  (content))
 
 ==================
 filter with arguments
 ==================
-
 {{ items | join(",") }}
 
 ---
 
 (source_file
-  (filter_chain
-    (identifier)
-    (identifier)
-    (argument_list
-      (lit_string))))
+  (output
+    expr: (filter_chain
+      base: (identifier)
+      name: (identifier)
+      arguments: (argument_list
+        (lit_string))))
+  (content))
+

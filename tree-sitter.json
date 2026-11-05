@@ -3,10 +3,12 @@
     {
       "name": "nunjucks",
       "camelcase": "Nunjucks",
-      "scope": "text.nunjucks",
+      "scope": "text.html.nunjucks",
       "path": ".",
       "file-types": ["njk", "nunjucks"],
-      "injection-regex": "nunjucks"
+      "injection-regex": "nunjucks",
+      "highlights": ["queries/highlights.scm"],
+      "injections": ["queries/injections.scm"]
     }
   ],
   "metadata": {
@@ -20,9 +22,12 @@
     ]
   },
   "bindings": {
-    "c": true,
-    "node": true,
-    "python": true,
-    "rust": true
+    "c": false,
+    "go": false,
+    "node": false,
+    "python": false,
+    "rust": false,
+    "swift": false,
+    "zig": false
   }
 }

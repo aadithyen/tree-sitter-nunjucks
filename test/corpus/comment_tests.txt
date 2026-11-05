@@ -1,19 +1,22 @@
 ==================
 comment
 ==================
-
 {# ignore this #}
 
 ---
 
-(source_file)
+(source_file
+  (comment)
+  (content))
 
 ==================
 comment with extra hashes
 ==================
-
 {# still a comment ##}
 
 ---
 
-(source_file)
+(source_file
+  (comment)
+  (content))
+

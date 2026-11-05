@@ -1,10 +1,19 @@
 {
   "name": "tree-sitter-nunjucks",
   "version": "0.1.0",
-  "description": "Nunjucks grammar for tree-sitter",
-  "main": "bindings/node",
-  "keywords": ["parsing", "incremental", "nunjucks", "njk", "eleventy"],
+  "description": "Nunjucks grammar for tree-sitter (Eleventy .njk templates)",
+  "keywords": ["parsing", "incremental", "nunjucks", "njk", "eleventy", "tree-sitter"],
   "license": "Apache-2.0",
+  "private": true,
+  "tree-sitter": [
+    {
+      "scope": "text.html.nunjucks",
+      "file-types": ["njk", "nunjucks"],
+      "injection-regex": "nunjucks",
+      "highlights": ["queries/highlights.scm"],
+      "injections": ["queries/injections.scm"]
+    }
+  ],
   "devDependencies": {
     "tree-sitter-cli": "^0.26.0"
   }

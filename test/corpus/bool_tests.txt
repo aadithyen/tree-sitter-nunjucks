@@ -1,14 +1,18 @@
 ==================
 nunjucks booleans
 ==================
-
 {{ true }}
 {{ false }}
 
 ---
 
 (source_file
-  (filter_chain
-    (bool))
-  (filter_chain
-    (bool)))
+  (output
+    expr: (filter_chain
+      base: (bool)))
+  (content)
+  (output
+    expr: (filter_chain
+      base: (bool)))
+  (content))
+
