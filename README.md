@@ -7,9 +7,12 @@ typical [Eleventy](https://www.11ty.dev/) usage.
 
 Based on ideas and structure from
 [dbt-labs/tree-sitter-jinja2](https://github.com/dbt-labs/tree-sitter-jinja2)
-(Apache-2.0). See [NOTES.md](./NOTES.md) for design choices and gaps.
+(Apache-2.0). Also helped by
+[alsolovyev/Nunjucks](https://github.com/alsolovyev/Nunjucks)
+(VS Code Nunjucks grammar). See [NOTES.md](./NOTES.md) for design choices and
+gaps.
 
-Much of this grammar was drafted with AI assistance; review before treating as
+This grammar is entirely AI-generated; review before treating as
 production-ready.
 
 ## Status
