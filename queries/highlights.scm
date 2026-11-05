@@ -2,7 +2,7 @@
 ; Scope model follows alsolovyev/Nunjucks Sublime scopes, mapped to
 ; tree-sitter standards (same idea as twig/liquid queries).
 ; priority 110: win over combined HTML injection bleed into `{{`/`{%` gaps.
-; No blanket (identifier) @variable — that painted filters/calls one flat colour.
+; No blanket (identifier) @variable — that painted filters/calls flat.
 
 ; --- Delimiters (Sublime: punctuation.expression / punctuation.statement) ---
 ([

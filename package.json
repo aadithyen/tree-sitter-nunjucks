@@ -2,7 +2,14 @@
   "name": "tree-sitter-nunjucks",
   "version": "0.1.0",
   "description": "Nunjucks grammar for tree-sitter (Eleventy .njk templates)",
-  "keywords": ["parsing", "incremental", "nunjucks", "njk", "eleventy", "tree-sitter"],
+  "keywords": [
+    "parsing",
+    "incremental",
+    "nunjucks",
+    "njk",
+    "eleventy",
+    "tree-sitter"
+  ],
   "license": "Apache-2.0",
   "private": true,
   "tree-sitter": [

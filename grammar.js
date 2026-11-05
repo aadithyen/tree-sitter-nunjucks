@@ -1,7 +1,7 @@
 // Nunjucks template grammar for tree-sitter.
 // Structure follows https://github.com/dbt-labs/tree-sitter-jinja2 and
 // gbprod/tree-sitter-twig (named output/statement, HTML host as `content`).
-// Keyword set aligned with https://github.com/alsolovyev/Nunjucks Sublime scopes.
+// Keyword set aligned with alsolovyev/Nunjucks Sublime scopes.
 
 function commaSep1(rule) {
   return sep1(rule, ',');
